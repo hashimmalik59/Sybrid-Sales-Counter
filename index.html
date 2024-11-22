@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Counter</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: "Poppins", sans-serif;
+      background-color: #000;
+      color: rgb(29, 29, 29);
+      font-weight: 100;
+    }
+    div {
+      height: 45vh;
+      width: 20vw;
+      border: 1px solid;
+      border-radius: 10%;
+      text-align: center;
+      margin: auto;
+      position: relative;
+      top: 10vh;
+      background-color: #fff;
+    }
+    .show {
+      font-size: 1.5em;
+    }
+    .button {
+      height: 40px;
+      width: 40px;
+      margin: 1%;
+      border-radius: 5px;
+      font-weight: 100;
+      background-color: transparent;
+      border: 1px solid rgb(29, 29, 29);
+      color: rgb(29, 29, 29);
+      font-size: 1.5em;
+      transition: all ease-in-out, 0.25s;
+    }
+    .display {
+      font-size: 1.5em;
+    }
+    button:hover {
+      border: 1px solid;
+      color: #fff;
+      background-color: #ff2801;
+      transform: scale(1.25);
+    }
+    h1 {
+      background-color: #fff;
+    }
+    .go {
+      font-size: medium;
+    }
+    .counter-display {
+      color: rgb(29, 29, 29);
+      font-size: 3vw;
+    }
+  </style>
+  <body>
+    <div>
+      <img src="download (1).png" alt="Sybrid Logo" width="70%" />
+      <h1 class="show">Sybrid Sales Counter</h1>
+      <h1 class="go"></h1>
+      <h1 class="counter-display">0</h1>
+      <button class="decre button" onclick="decrement()">-</button>
+      <button class="rst button" onclick="reset()">0</button>
+      <button class="incre button" onclick="increment()">+</button>
+    </div>
+  </body>
+  <script>
+    let count = 0;
+    document.querySelector(".decre").onclick = function () {
+      count -= 1;
+      document.querySelector(".counter-display").innerHTML = count;
+    };
+    document.querySelector(".rst").onclick = function () {
+      count = 0;
+      document.querySelector(".counter-display").innerHTML = count;
+    };
+    document.querySelector(".incre").onclick = function () {
+      count += 1;
+      if (count === 5) {
+        let go = document.querySelector(".go");
+        go.innerHTML = "Congratulations you done it!";
+      } else if (count === 50) {
+        let go = document.querySelector(".go");
+        go.innerHTML = "50 comes up";
+      } else if (count === 65) {
+        let go = document.querySelector(".go");
+        go.innerHTML = "Come on you completed half sales";
+      } else if (count === 100) {
+        let go = document.querySelector(".go");
+        go.innerHTML = "Century";
+      }
+      document.querySelector(".counter-display").innerHTML = count;
+    };
+  </script>
+</html>
